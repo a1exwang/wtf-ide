@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <script>$ = jQuery = require('jquery')</script>
+    <script>require('angular')</script>
+    <script>require('bootstrap')</script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div data-ng-app="wtfIde">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div data-ng-controller="toolbarCtrl">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button class="btn btn-xs btn-success" data-ng-click="clickNew()">New</button>
+                            <button class="btn btn-xs btn-success" data-ng-click="clickLoad()">Load</button>
+                            <button class="btn btn-xs btn-success" data-ng-click="clickSave()">Save</button>
+                            <button class="btn btn-xs btn-success" data-ng-click="clickSaveAs()">Save As</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button class="btn btn-xs btn-success" data-ng-click="clickRun()">Run</button>
+                            <button class="btn btn-xs btn-success" data-ng-click="clickDebug()">Debug</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- center content, editor and navigation -->
+            <div class="row">
+                <ul class="col-sm-2 nav nav-pills nav-stacked">
+                    <li>File1</li>
+                    <li>File2</li>
+                    <li>File3</li>
+                    <li>File4</li>
+                </ul>
+                <div class="col-sm-10">
+                    <div ng-controller="editorCtrl">
+                    <pre contenteditable="true"
+                         id="wtfEditorText"
+                         data-ng-model="text"
+                         data-ng-change="textChanged()"></pre>
+                        <pre id="wtfEditorRawText">{{ rawText }}</pre>
+                    </div>
+                    <div id="console" data-ng-controller="consoleCtrl">
+                        <pre id="consoleContent" data-ng-model="text">console: <br/>{{ text }}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Status bar -->
+    <div class="affix wtf-status-bar" data-spy="affix" data-ng-controller="statusBarCtrl">
+        <p class="wtf-status-bar-line">
+            <span class="wtf-status-bar-line-left">{{ leftText }}</span>
+            <span class="wtf-status-bar-line-right">{{ rightText }}</span>
+        </p>
+    </div>
+</div>
+<script src="../js/main.angular.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

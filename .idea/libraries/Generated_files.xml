@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/assets/js/main.angular.js" />
+        <item url="file://$PROJECT_DIR$/app.js" />
+        <item url="file://$PROJECT_DIR$/assets/js/syntaxHighlight.js" />
+        <item url="file://$PROJECT_DIR$/assets/js/main.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/main1.js" />
+      <root url="file://$PROJECT_DIR$/assets/js/main.angular.js" />
+      <root url="file://$PROJECT_DIR$/app.js" />
+      <root url="file://$PROJECT_DIR$/assets/js/syntaxHighlight.js" />
+      <root url="file://$PROJECT_DIR$/assets/js/main.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

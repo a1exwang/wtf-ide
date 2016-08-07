@@ -1,0 +1,15 @@
+{
+  "name": "wtf-ide",
+  "version": "0.1.0",
+  "main": "main.js",
+  "description": "IDE for wtf language",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "coffee-script": "~1.10.0",
+    "electron-prebuilt": "^1.2.0",
+    "jquery": "^3.1.0",
+    "temp": "^0.8.3"
+  }
+}
