@@ -46,6 +46,12 @@ ide.controller 'editorCtrl', ['$scope', '$element', ($scope, $element) ->
       prevText = $("#wtfEditorText").html()
       console.log 'textChanged'
       loadText($("#wtfEditorText").text())
+  $scope.$parent.$on('run', (event, args) ->
+    run = require('../js/run')
+    run($scope.rawText, (output) ->
+      $scope.$parent.$emit('consoleOutput', output)
+    )
+  )
 ]
 
 ide.controller 'toolbarCtrl', ['$scope', '$rootScope', ($scope) ->
@@ -67,7 +73,7 @@ ide.controller 'toolbarCtrl', ['$scope', '$rootScope', ($scope) ->
     console.log('save')
 
   $scope.clickRun = ->
-    console.log('run')
+    $scope.$parent.$emit("run");
   $scope.clickDebug = ->
     console.log('debug')
 ]

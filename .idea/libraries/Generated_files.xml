@@ -3,17 +3,18 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/assets/js/main.angular.js" />
-        <item url="file://$PROJECT_DIR$/app.js" />
-        <item url="file://$PROJECT_DIR$/assets/js/syntaxHighlight.js" />
         <item url="file://$PROJECT_DIR$/assets/js/main.js" />
+        <item url="file://$PROJECT_DIR$/assets/js/syntaxHighlight.js" />
+        <item url="file://$PROJECT_DIR$/assets/js/run.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/main1.js" />
-      <root url="file://$PROJECT_DIR$/assets/js/main.angular.js" />
       <root url="file://$PROJECT_DIR$/app.js" />
-      <root url="file://$PROJECT_DIR$/assets/js/syntaxHighlight.js" />
+      <root url="file://$PROJECT_DIR$/assets/js/main.angular.js" />
       <root url="file://$PROJECT_DIR$/assets/js/main.js" />
+      <root url="file://$PROJECT_DIR$/assets/js/syntaxHighlight.js" />
+      <root url="file://$PROJECT_DIR$/assets/js/run.js" />
     </CLASSES>
     <SOURCES />
   </library>
