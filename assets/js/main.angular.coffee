@@ -11,7 +11,9 @@ ide.directive "contenteditable", -> {
 }
 
 ide.controller 'editorCtrl', ['$scope', '$element', ($scope, $element) ->
-  syntaxHighlighter = require('../js/syntaxHighlight')
+  Editor = require('../js/editor/editor')
+  editor = new Editor($('#wtfEditorText'))
+  window.editor = editor
 #  # called when editor text changed
 #  observer = new MutationObserver((mutations) ->
 #    mutations.forEach (mutation) ->
@@ -31,9 +33,12 @@ ide.controller 'editorCtrl', ['$scope', '$element', ($scope, $element) ->
 #  observer.observe($element[0], config)
   loadText = (newRawText) ->
     $scope.rawText = newRawText
-    syntaxHighlighter(newRawText, (text)->
+    offset = editor.getCursor()
+    editor.loadText(newRawText, (text)->
       $scope.$apply ->
         $scope.text = text
+        setTimeout((->
+          editor.setCursorOffset(offset+1)), 20)
     )
 
   $scope.$parent.$on('loadText', (event, rawText) ->

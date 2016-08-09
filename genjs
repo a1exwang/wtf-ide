@@ -1,0 +1,4 @@
+#!/bin/sh
+for file in $(find . | grep \\.coffee\$); do
+  coffee -c -m $file
+done
