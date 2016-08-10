@@ -7,7 +7,7 @@ ide.directive "contenteditable", -> {
       element.html(ngModel.$viewValue || "")
 
     element.bind "blur keyup change paste", ->
-      ngModel.$setViewValue(element.html())
+      ngModel.$setViewValue(element.text())
 }
 
 ide.controller 'editorCtrl', ['$scope', '$element', ($scope, $element) ->
@@ -38,7 +38,9 @@ ide.controller 'editorCtrl', ['$scope', '$element', ($scope, $element) ->
       $scope.$apply ->
         $scope.text = text
         setTimeout((->
-          editor.setCursorOffset(offset+1)), 20)
+          editor.setCursorOffset(offset+1)), 20
+          $("#wtfEditorText").get(0).focus()
+        )
     )
 
   $scope.$parent.$on('loadText', (event, rawText) ->
@@ -47,13 +49,13 @@ ide.controller 'editorCtrl', ['$scope', '$element', ($scope, $element) ->
 
   prevText = $("#wtfEditorText").html()
   $scope.textChanged = ->
-    if prevText != $("#wtfEditorText").html()
-      prevText = $("#wtfEditorText").html()
-      console.log 'textChanged'
+    newText = $("#wtfEditorText").html()
+    if prevText != newText
+      prevText = newText
       loadText($("#wtfEditorText").text())
   $scope.$parent.$on('run', (event, args) ->
     run = require('../js/run')
-    run($scope.rawText, (output) ->
+    run($scope.rawText, [], [], (output) ->
       $scope.$parent.$emit('consoleOutput', output)
     )
   )

@@ -3,6 +3,7 @@ parseLocations = require('./ast')
 module.exports = (element) ->
   rawText = ''
   htmlParts = []
+  @element = element
   @getRawText = ->
     rawText
 

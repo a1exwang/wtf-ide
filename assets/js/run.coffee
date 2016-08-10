@@ -1,4 +1,4 @@
-module.exports = (code, callback) ->
+module.exports = (code, interpArgs, args, callback) ->
   fs = require('fs')
   temp = require('temp').track()
   fs   = require('fs')
@@ -10,8 +10,13 @@ module.exports = (code, callback) ->
     if (!err)
       fs.write(info.fd, code)
       fs.close(info.fd, (err) -> console.log("close failed") if err);
+      cmdLine = [config("interpPath"), "--file", "#{info.path}"]
+      cmdLine = cmdLine.concat(interpArgs)
+      cmdLine.push("-a")
+      cmdLine = cmdLine.concat(args)
+      console.log(cmdLine)
       ret = child_process.spawnSync("ruby",
-        [config("interpPath"), "--file", "#{info.path}"],
+        cmdLine
         shell: true
       )
       callback(ret.stdout.toString("utf8"))
